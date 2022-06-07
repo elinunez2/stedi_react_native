@@ -7,12 +7,14 @@ const Login = () => {
 
   return (
     <SafeAreaView>
+      <Text>Phone Number</Text>
       <TextInput
         style={styles.input}
         onChangeText={setPhoneNumber}
         value={phoneNumber}
         placeholder="123-456-7890"
       />
+      <Text>OTP</Text>
       <TextInput
         style={styles.input}
         onChangeText={setOneTimePassword}
