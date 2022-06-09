@@ -1,5 +1,5 @@
-import {useState, useRef} from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import {useState} from "react";
+import { SafeAreaView, StyleSheet, TextInput, Text } from "react-native";
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
