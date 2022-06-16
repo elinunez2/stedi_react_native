@@ -1,6 +1,16 @@
 import {useState} from "react";
 import {SafeAreaView, StyleSheet, TextInput, Text, Button, TouchableOpacity} from "react-native";
 
+const sendText = async (phoneNumber) => {
+  console.log("PhoneNumber: ", phoneNumber)
+  await fetch('https://dev.stedi.me/twofactorlogin/'+phoneNumber,{
+    method: 'POST',
+    headers:{
+      'content-type':'application/text'
+    }
+  })
+}
+
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [oneTimePassword, setOneTimePassword] = useState(null);
@@ -14,6 +24,20 @@ const Login = () => {
         value={phoneNumber}
         placeholder="123-456-7890"
       />
+
+      {/* <Button
+        title="Send OTP"
+        onPress={() => {sendText(phoneNumber)}}
+      /> */}
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={()=>{sendText(phoneNumber)}}
+      >
+      <Text>Send OTP</Text>
+      </TouchableOpacity>
+
+
       <Text>OTP</Text>
       <TextInput
         style={styles.input}
@@ -26,7 +50,7 @@ const Login = () => {
 
     {/* <Button
       title="Login"
-      //onPress={() => Alert.alert('Simple Button pressed')}
+      onPress={() => {console.log('Login button clicked')}}
     /> */}
 
     <TouchableOpacity
