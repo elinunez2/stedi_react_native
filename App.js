@@ -64,7 +64,7 @@ export default function App(props) {
 
   else {
     return(
-      <Login></Login>
+      <Login setUserLoggedIn={setUserLoggedIn}></Login>
     );
   }
 
