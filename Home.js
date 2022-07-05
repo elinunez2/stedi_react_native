@@ -5,14 +5,10 @@ import Icons from './Icons.js';
 import Bar  from './Bar.js';
 import Login from './Login.js';
 
-const getEmail = async (phoneNumber) =>{
-  
-}
-
-const Home = () => {
+const Home = (props) => {
   return (
     <View>
-      <Bar loggedInUser="hellopandas720@gmail.com"/>
+      <Bar loggedInUser = {props.loggedInUser}/>
       <Icons />
     </View>
   );

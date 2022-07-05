@@ -20,14 +20,15 @@ const getToken = async ({phoneNumber, oneTimePassword, setUserLoggedIn}) => {
       'content-type':'application/json'
     }
   });
-  
   const responseCode = tokenResponse.status;
   console.log("Response Status Code", responseCode);
+  const tokenResponseString = await tokenResponse.text();
+  console.log(tokenResponseString);
   if(responseCode==200){
     setUserLoggedIn(true);
   }
-  const tokenResponseString = await tokenResponse.text();
-  console.log(tokenResponseString);
+  const userEmail = fetch('https://dev.stedi.me/validate/'+tokenResponseString);
+  console.log(userEmail.text());
 }
 
 const Login = (props) => {
